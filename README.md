@@ -104,9 +104,9 @@ EDNS0について調べたついでに、各DNS権威サーバにEDN0の"よう�
   OPT pseudo-RRを含まない場合(非EDNS0)と同じ応答を返しました。
 
 
-### ケース4: OPT pseudo-RRのドメイン名を"www.example.com"にしたクエリ
+### ケース4: OPT pseudo-RRのドメイン名をwww.example.comにしたクエリ
 
-下記は、OPT pseudo-RRのドメイン名を"www.example.com"にしたクエリを送信した時にtcpdumpにて取得したパケットキャプチャのデータへのリンクです。
+下記は、OPT pseudo-RRのドメイン名を*www.example.com*にしたクエリを送信した時にtcpdumpにて取得したパケットキャプチャのデータへのリンクです。
 
 * [Bindに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_04_01.cap?raw=true)
 
