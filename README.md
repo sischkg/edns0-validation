@@ -68,7 +68,7 @@ EDNS0について調べたついでに、各DNS権威サーバにEDN0の"よう�
 
 * [Bindに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_02_01.cap?raw=true)
 
-  `Format Error`を応答しました。
+  OPT pseudo-RRをADDITIONAL SECTIONに含む場合(通常のEDNS0)と同じ応答を返しました。
 
 * [NSDに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_02_02.cap?raw=true)
 
@@ -76,11 +76,11 @@ EDNS0について調べたついでに、各DNS権威サーバにEDN0の"よう�
 
 * [PowerDNS Authoritative Serverに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_02_03.cap?raw=true)
 
-  OPT pseudo-RRを一つ含む場合(通常のEDNS0)と同じ応答を返しました。
+  OPT pseudo-RRを含まない場合(非EDNS0)と同じ応答を返しました。
 
 * [knotDNSに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_02_04.cap?raw=true)
 
-  OPT pseudo-RRを一つ含む場合(通常のEDNS0)と同じ応答を返しました。
+  OPT pseudo-RRを含まない場合(非EDNS0)と同じ応答を返しました。
 
 
 ### ケース3: AUTHORITY SECTIONにOPT pseudo-RRを含むクエリ
