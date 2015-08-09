@@ -31,21 +31,11 @@ EDNS0について調べたついでに、各DNS権威サーバにEDN0の"よう�
 
 ### 通常のクエリに対するレスポンス
 
-* Bindに対するクエリとレスポンス
+* [Bindに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_00_01.cap?raw=true)
+* [NSDに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_00_02.cap?raw=true)
+* [PowerDNS Authoritative Serverに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_00_03.cap?raw=true)
+* [knotDNSに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_00_04.cap?raw=true)
 
-  https://github.com/sischkg/edns0-validation/blob/master/cap/test_00_01.cap?raw=true
-
-* NSDに対するクエリとレスポンス
-
-  https://github.com/sischkg/edns0-validation/blob/master/cap/test_00_02.cap?raw=true
-
-* PowerDNS Authoritative Serverに対するクエリとレスポンス
-
-  https://github.com/sischkg/edns0-validation/blob/master/cap/test_00_03.cap?raw=true
-
-* knotDNSに対するクエリとレスポンス
-
-  https://github.com/sischkg/edns0-validation/blob/master/cap/test_00_04.cap?raw=true
 
 
 
