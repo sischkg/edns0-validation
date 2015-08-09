@@ -1,4 +1,4 @@
-# edns0-validation
+# EDNS0に関するDNSサーバのバリデーションの比較(権威DNSサーバ)
 
 EDNS0について調べたついでに、各DNS権威サーバにEDN0の"ような"DNSクエリを送信した場合の応答について
 比較してみました。
@@ -30,6 +30,8 @@ EDNS0について調べたついでに、各DNS権威サーバにEDN0の"よう�
 ここでは、このルールに反したクエリを送信し、そのレスポンスを比較します。
 
 ### 通常のクエリに対するレスポンス
+
+下記はtcpdumpにて取得したパケットキャプチャのデータへのリンクです。
 
 * [Bindに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_00_01.cap?raw=true)
 * [NSDに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_00_02.cap?raw=true)
