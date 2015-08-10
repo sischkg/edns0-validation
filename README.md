@@ -22,13 +22,11 @@ EDNS0について調べたついでに、各DNS権威サーバにEDNS0の*よう
 
 ## 調査内容
 
-各DNSサーバへwww.example.comのAレコードを問い合わせました。
-そのクエリには、NSID(https://tools.ietf.org/html/rfc5001)を
-含んだOPT pseudo-RRを追加してあります。
+各DNSサーバへ、NSID(https://tools.ietf.org/html/rfc5001)を
+含んだOPT pseudo-RRをもつ、www.example.comのAレコードを問い合わせました。
 
 正しいEDNS0では、ADDITIONAL SECTIONに一つだけOPT pseudo-RRが存在ますが、
 ここでは、このルールに反したクエリを送信し、そのレスポンスを比較しました。
-
 
 
 ### ケース0: 通常のクエリに対するレスポンス
@@ -43,7 +41,7 @@ EDNS0について調べたついでに、各DNS権威サーバにEDNS0の*よう
 
 ### ケース1: 2個のOPT pseudo-RRを含むクエリ
 
-下記は、2個のOPT pseudo-RRを含むクエリを送信した時にtcpdumpにて取得したパケットキャプチャのデータへのリンクです。
+下記は、2個のOPT pseudo-RRを含むクエリを送信した時の、パケットキャプチャのデータです。
 
 * [Bindに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_01_01.cap?raw=true)
 
@@ -64,7 +62,7 @@ EDNS0について調べたついでに、各DNS権威サーバにEDNS0の*よう
 
 ### ケース2: ANSWER SECTIONにOPT pseudo-RRを含むクエリ
 
-下記は、ANSWER SECTIONにOPT pseudo-RRを含むクエリを送信した時にtcpdumpにて取得したパケットキャプチャのデータへのリンクです。
+下記は、ANSWER SECTIONにOPT pseudo-RRを含むクエリを送信した時の、パケットキャプチャのデータです。
 
 * [Bindに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_02_01.cap?raw=true)
 
@@ -85,7 +83,7 @@ EDNS0について調べたついでに、各DNS権威サーバにEDNS0の*よう
 
 ### ケース3: AUTHORITY SECTIONにOPT pseudo-RRを含むクエリ
 
-下記は、AUTHORITY SECTIONにOPT pseudo-RRを含むクエリを送信した時にtcpdumpにて取得したパケットキャプチャのデータへのリンクです。
+下記は、AUTHORITY SECTIONにOPT pseudo-RRを含むクエリを送信した時の、パケットキャプチャのデータです。
 
 * [Bindに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_03_01.cap?raw=true)
 
@@ -106,7 +104,7 @@ EDNS0について調べたついでに、各DNS権威サーバにEDNS0の*よう
 
 ### ケース4: OPT pseudo-RRのドメイン名をwww.example.comにしたクエリ
 
-下記は、OPT pseudo-RRのドメイン名を*www.example.com*にしたクエリを送信した時にtcpdumpにて取得したパケットキャプチャのデータへのリンクです。
+下記は、OPT pseudo-RRのドメイン名を*www.example.com*にしたクエリを送信した時の、パケットキャプチャのデータです。
 
 * [Bindに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_04_01.cap?raw=true)
 
