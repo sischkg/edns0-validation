@@ -16,7 +16,7 @@ EDNS0について調べたついでに、各DNS権威サーバにEDNS0の*よう
 * DNSサーバ
    - Bind: 9.10.2-P3
    - NSD: 4.1.3
-   - PowerDNS Authoritative Server 3.4.5
+   - PowerDNS Authoritative Server 3.4.4
    - knotDNS 1.6.4
 
 
