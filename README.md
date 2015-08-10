@@ -12,7 +12,7 @@ EDNS0について調べたついでに、各DNS権威サーバにEDNS0の*よう
 
 ### サーバ
 
-* OS: CentOS 6.6
+* OS: CentOS 6.6 on VirtualBox
 * DNSサーバ
    - Bind: 9.10.2-P3
    - NSD: 4.1.3
