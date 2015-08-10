@@ -129,7 +129,7 @@ EDNS0について調べたついでに、各DNS権威サーバにEDNS0の*よう
 
 |                                        | Bind           | NSD        | PowerDNS           | knotDNS         |
 |----------------------------------------|----------------|------------|--------------------|-----------------|
-|ケース1:複数OPT pseudo-RR               | FormErr        | FormErr    | NoError(EDNS0)     |NoError(EDNS0)   |
+|ケース1:OPT pseudo-RR x 2               | FormErr        | FormErr    | NoError(EDNS0)     |NoError(EDNS0)   |
 |ケース2:OPT pseudo-RR in ANSWER         | NoError(EDNS0) | FormErr    | NoError(非EDNS0)   |NoError(非EDNS0) |
 |ケース3:OPT pseudo-RR in AUTHORITY      | NoError(EDNS0) | FormErr    | NoError(非EDNS0)   |NoError(非EDNS0) |
 |ケース4:OPT pseudo-RRのドメイン名を変更 | FormErr        | FormErr    | NoError(EDNS0)     |NoError(EDNS0)   |
