@@ -3,6 +3,8 @@
 EDNS0について調べたついでに、各DNS権威サーバにEDNS0の*ような*DNSクエリを送信した場合の応答について
 比較してみました。
 
+[キャッシュサーバ版はこちらです。](https://github.com/sischkg/edns0-validation/blob/master/cache_servers_ja.md)
+
 ## 環境
 
 ### クライアント
