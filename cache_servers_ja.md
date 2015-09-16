@@ -25,7 +25,7 @@
 * DNSサーバ
    - Bind: 9.10.2-P3
    - Unbound: 1.5.4
-   - PowerDNS: 3.7.3
+   - PowerDNS Recursor: 3.7.3
 * IPアドレス:
    - Bind: 192.168.33.101
    - Unbound: IPアドレス: 192.168.33.102
@@ -34,7 +34,7 @@
 ### 権威サーバ
 
 * OS: Ubuntu Mate 14.04
-* DNSサーバ: C++で作成した自作DNSサーバ
+* DNSサーバ: C++で作成したDNSパケットを応答するサーバ
 * IPアドレス: 192.168.33.1
 
 ## 調査内容
@@ -138,14 +138,42 @@ DNSクライアントから各キャッシュサーバへwww.example.comのAレ�
 
   `NoError`を応答しました。
 
+### ケース6: OPT pseudo-RRのextend-rcodeを常にBADVERSにしたレスポンス
+
+下記は、OPT pseudo-RRをextend-rcodeを常にBADVERSにしたレスポンスパケットを応答した時の、パケットキャプチャのデータです。
+
+* [Bindに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_16_01.cap.gz?raw=true)
+
+  `ServFail`を応答しました。
+
+* [Unboundに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_16_02.cap?raw=true)
+
+  `NoError`を応答しました。
+
+* [PowerDNSに対するクエリとレスポンス](https://github.com/sischkg/edns0-validation/blob/master/cap/test_16_03.cap?raw=true)
+
+  `NoError`を応答しました。
+
 ## 比較表
 
-|                                        | Bind      | Unbound    | PowerDNS |
-|----------------------------------------|-----------|------------|----------|
-|ケース1:OPT pseudo-RR x 2(同じCLASS)     | ServFail  | NoError    | NoError  |
-|ケース2:OPT pseudo-RR x 2(異なるCLASS)   | ServFail  | ServFail   | NoError  |
-|ケース3:OPT pseudo-RR in ANSWER         | NoError   | ServFail   | NoError  |
-|ケース4:OPT pseudo-RR in AUTHORITY      | NoError   | ServFail   | NoError  |
-|ケース5:OPT pseudo-RRのドメイン名を変更  | ServFail  | ServFail   | NoError  |
+|                                             | Bind      | Unbound    | PowerDNS |
+|---------------------------------------------|-----------|------------|----------|
+|ケース1:OPT pseudo-RR x 2(同じCLASS)          | ServFail  | NoError    | NoError  |
+|ケース2:OPT pseudo-RR x 2(異なるCLASS)        | ServFail  | ServFail   | NoError  |
+|ケース3:OPT pseudo-RR in ANSWER               | NoError   | ServFail   | NoError  |
+|ケース4:OPT pseudo-RR in AUTHORITY            | NoError   | ServFail   | NoError  |
+|ケース5:OPT pseudo-RRのドメイン名を変更        | ServFail  | ServFail   | NoError  |
+|ケース6:OPT pseudo-RRのextend-rcodeをBADVERS  | ServFail  | NoError    | NoError  |
+
+
+## ケース6のBindの動作について
+
+権威サーバが常にextend-rcode = BADVERSを返す場合、キャッシュサーバのBind 9.10.2-P3は何度も権威サーバへ
+問い合わせを行います。そのため、権威サーバとキャッシュサーバ間でクエリ/レスポンスが往復し続けます。
+ただし、このクエリ/レスポンスは、無限に継続することはなくresolver-query-time（デフォルト10秒)で止まります。
+
+この現象は、[Bind 9.10.3rc1](https://kb.isc.org/article/AA-01303)で修正されています。
+
+> BADVERS responses from broken authoritative name servers were not handled correctly. [RT #40427]
 
 
